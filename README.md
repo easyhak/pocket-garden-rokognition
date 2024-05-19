@@ -1,4 +1,14 @@
-# Pocket Garden
+# Pocket Garden 🏡
+
+2024 Zeropage & Clug 연합 UNION 해커톤 1등 수상작
+
+기본 이미지 분석 및 커스텀 라벨 분석
+
+## Stack
+- AWS Lambda
+- AWS API Gateway
+- AWS Rekognition
+- AWS S3 - for saving image datas
 
 ## AWS Rekognition Custom Label Model Explain
 
@@ -96,8 +106,8 @@ aws rekognition start-project-version \
 **Request Body**
 ```json
 {
-  "bucket": bucket_name,
-  "name": image_name
+  "bucket": "bucket_name",
+  "name": "image_name"
 }
 ```
 ---
