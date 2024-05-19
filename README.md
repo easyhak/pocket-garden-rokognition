@@ -2,9 +2,9 @@
 
 ## AWS Rekognition Custom Label Model Explain
 
-- 33 labels
+- 33 Labels
     <details>
-    <summary>label</summary>
+    <summary>Label</summary>
         <div markdown="1">
             <ul>
                 <li>개나리</li>
@@ -40,8 +40,7 @@
                 <li>진달래</li>
                 <li>카네이션</li>
                 <li>코스모스</li>
-            </ul>
-            
+            </ul>     
         </div>
     </details>
 
@@ -69,8 +68,8 @@ aws rekognition start-project-version \
 **Request Body**
 ```json
 {
-  "bucket": bucket_name,
-  "name": image_name
+  "bucket": "bucket_name",
+  "name": "image_name"
 }
 ```
 ---
@@ -89,6 +88,9 @@ aws rekognition start-project-version \
     "Orange"
 ]
 ```
+
+---  
+
 ### /custom
 
 **Request Body**
@@ -101,7 +103,7 @@ aws rekognition start-project-version \
 ---
 **Response Body**
 ```json
-감나무
+"감나무"
 ```
 
 ## Others
