@@ -1,0 +1,73 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model template describing your function.
+Resources:
+  detect:
+    Type: AWS::Serverless::Function
+    Properties:
+      Variables:
+        rekognition_arn: rekognition_arn
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 10
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      EphemeralStorage:
+        Size: 512
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      PackageType: Zip
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - rekognition:ListCollections
+                - rekognition:ListFaces
+                - rekognition:SearchFaces
+                - rekognition:SearchFacesByImage
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - rekognition:CreateCollection
+                - rekognition:IndexFaces
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - rekognition:CompareFaces
+                - rekognition:DetectFaces
+                - rekognition:DetectLabels
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+              Resource: arn:aws:s3:::*
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+              Resource: lambda_arn
+            - Effect: Allow
+              Action:
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource:
+                - >-
+                  lambda_arn:log-group:/aws/lambda/detect:*
+      SnapStart:
+        ApplyOn: None
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+        Api2:
+          Type: Api
+          Properties:
+            Path: /detect
+            Method: ANY
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
