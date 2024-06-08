@@ -1,4 +1,4 @@
-# Pocket Garden 🏡
+# Pocket Plant 🏡
 
 2024 Zeropage & Clug 연합 UNION 해커톤 1등 수상작
 
@@ -117,5 +117,5 @@ aws rekognition start-project-version \
 ```
 
 ## Others
-<a href="https://github.com/Choi-JY1107/2024-Union-Hackathon" >FrontEnd Code</a>   
+<a href="https://github.com/jaeho0718/PocketPlant-iOS" >FrontEnd Code</a>   
 <a href="https://github.com/Choi-JY1107/2024-Union-Hackathon" src="">BackEnd Code</a>
